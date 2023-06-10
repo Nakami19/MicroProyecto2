@@ -1,6 +1,7 @@
-import { Navbar } from "../../components/NavBar/NavBar";
+
 import { Outlet } from "react-router-dom";
-import { UserContextProvider } from "../../contextos/userContext";
+import { NavBar } from "../../components/NavBar/NavBar";
+import { Footer } from "../../components/Footer/Footer";
 
 export function Layout() {
 
@@ -8,16 +9,17 @@ export function Layout() {
     return (
         
         <main>
-         <UserContextProvider>
-          {/* todo lo que este dentro de la etiqueta userContext puede acceder a userContext */}
           
-          <Navbar />
-  
+          <NavBar/>
+          
           <section className="body">
-            <Outlet /> {/*importante para que el layout aparezca en todas las rutas/paginas*/}
+            <Outlet/>
           </section>
-         </UserContextProvider>
+
+           <footer>
+            <Footer/>
+           </footer>
         </main>
-        
+       
     );
   }

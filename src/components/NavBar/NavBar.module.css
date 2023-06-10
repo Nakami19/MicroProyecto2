@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background: #4E598C;
+    padding: 24px 120px;
+    font-size: 12px;
+  }
+.menuoption{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    
+}
+
+.navbar .menuoption .link {
+    font-size: inherit;
+    font-weight: inherit;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: black;
+}
