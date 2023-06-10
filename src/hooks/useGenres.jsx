@@ -8,8 +8,11 @@ export function useGenres() {
         setGenres(data.genres)
     }
 
-    return (
-        genres
-    )
+    return {
+        genres,
+        getGenres
+    }
+        
+    
 
 }

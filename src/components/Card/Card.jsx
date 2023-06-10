@@ -1,6 +1,17 @@
 import styles from "./Card.module.css";
 
-export function Card({movie}) {
+export function Card({movie,genres}) {
+    let generos=[];
+    let gen="";
+    genres.map((genr)=>{
+        console.log(genr)
+            movie.genre_ids.map((num)=>{
+                if (num==genr.id) {
+                    generos.push(genr.name)
+                }
+            })
+})
+    generos.map((gene)=>{gen+=`${gene} `})
    return ( 
    <div className={styles.container}>
      <div className={styles.movies}> 
@@ -9,14 +20,18 @@ export function Card({movie}) {
           alt={movie.title}
           className={styles.image}
         />
+        <div className={styles.info}>
         <div className={styles.movietitle}>
-            <h3>{movie.title}</h3>
+            <h2>{movie.title}</h2>
         </div>
+        <br></br>
         <div className={styles.movieinfo}>
             <p>Idioma original: {movie.original_language}</p>
+            <p>Generos:</p>
+            <p>{gen}</p>
         </div>
       </div>
-      
+      </div>
         
     </div>
    )

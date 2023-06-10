@@ -3,3 +3,17 @@
     grid-template-columns: repeat(3,auto);
     column-gap: 24px;
 }
+
+.title {
+    color: #777de4;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    margin-left: 50px;
+}
+
+.container {
+    background-color: white;
+    
+}
