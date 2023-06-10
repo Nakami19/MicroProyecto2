@@ -1,8 +1,10 @@
+import { useEffect } from "react";
+import { useMovies } from "../../hooks/useMovies";
 import styles from "./Footer.module.css"
 
 
 export function Footer() {
-
+    
     return (
         <footer className={styles.footer}> 
             <ul>
