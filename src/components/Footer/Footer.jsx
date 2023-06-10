@@ -6,19 +6,19 @@ export function Footer() {
     return (
         <footer className={styles.footer}> 
             <ul>
-                <ol>
+                <ol className={styles.info}>
                     <h2>Contáctanos</h2>
                 </ol>
-                <ol>
+                <ol className={styles.info}>
                     <h2>cineunimet@gmail.com</h2>
                 </ol>
             </ul>
 
             <ul>
-                <ol>
+                <ol className={styles.info}>
                     <h2>Dirección</h2>
                 </ol>
-                <ol>
+                <ol className={styles.info}>
                     <h2>
                     Av. Boyacá con autopista Petare-Guarenas.
                     </h2>
