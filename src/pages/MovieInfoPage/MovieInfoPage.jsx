@@ -3,7 +3,6 @@ import { useMovies } from "../../hooks/useMovies";
 import { useEffect } from "react";
 import { useActors } from "../../hooks/useActors";
 import styles from "./MovieInfoPage.module.css"
-import { element } from "prop-types";
 import { Reservar_URL } from "../../constants/url";
 import { Link } from "react-router-dom";
 

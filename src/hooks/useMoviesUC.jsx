@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FetchMovieUC, FetchMoviesUC } from "../apis/up-coming-api";
+import { FetchMovieSearch } from "../apis/search-api";
 
 export function useMoviesUC () {
     const [moviesuc, setMoviesUC]=useState([]);
@@ -15,7 +16,11 @@ export function useMoviesUC () {
         setMovieUC(data)
     }
 
+    // const getSearchMovieUC=async(busqueda)=> {
+    //     const{data}=await FetchMovieSearch(busqueda)
+    //     setMoviesUC(data.results)
+    // }
     return {
-        moviesuc, getMoviesUC, movieuc, getOneMovieUC
+        moviesuc, getMoviesUC, movieuc, getOneMovieUC, //getSearchMovieUC
     }
 }

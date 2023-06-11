@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { FetchMovie, FetchMovies, getCredits } from "../apis/now-playing-api";
+import { FetchMovieSearch } from "../apis/search-api";
 
 export function useMovies() {
     const [movies, setMovies]=useState([]);
@@ -26,8 +27,13 @@ export function useMovies() {
         setIdiomas(data)
     }
 
+    const getSearchMovies= async (busqueda) => {
+        const {data}=await FetchMovieSearch(busqueda)
+        setMovies(data.results)
+    }
+
     return {
-        movies, getMovies, movie, getOneMovie, idiomas, getIdiomas
+        movies, getMovies, movie, getOneMovie, idiomas, getIdiomas, getSearchMovies
     }
 
 }
