@@ -5,7 +5,6 @@ export function Card({movie,genres}) {
     let generos=[];
     let gen="";
     genres.map((genr)=>{
-        console.log(genr)
             movie.genre_ids.map((num)=>{
                 if (num==genr.id) {
                     generos.push(genr.name)

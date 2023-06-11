@@ -6,10 +6,12 @@ export function useMovies() {
     const [movies, setMovies]=useState([]);
     const [movie, setMovie]=useState([null])
     const [idiomas, setIdiomas]=useState([])
+    const [dates, setDates]=useState([]);
 
     const getMovies=async () => {
         const {data}=await FetchMovies()
         setMovies(data.results)
+        setDates(data.dates)
 
     }
 

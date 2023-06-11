@@ -1,8 +1,11 @@
 .movies {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(3,auto);
-    column-gap: 24px;
+    column-gap: 24px; */
 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .hero {

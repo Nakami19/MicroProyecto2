@@ -6,12 +6,17 @@ import { Carousel } from "../../components/Carrousel/Carousel";
 import { slides } from "../../components/Carrousel/SliderData.json";
 
 import { useGenres } from "../../hooks/useGenres";
+import { useMoviesUC } from "../../hooks/useMoviesUC";
 
 export function HomePage() {
     const {
         movies,
         getMovies
     }=useMovies()
+
+    const {
+        moviesuc, getMoviesUC
+    }=useMoviesUC()
 
     useEffect(()=>{
         getMovies();
@@ -26,6 +31,10 @@ export function HomePage() {
         getGenres()
     },[])
 
+    useEffect(()=>{
+        getMoviesUC()
+    },[])
+
     return (
         <div className={styles.container}>
             <div className={styles.hero}>
@@ -36,6 +45,20 @@ export function HomePage() {
         <div className={styles.movies}>
           {
          movies.map((movie)=>{
+        
+            return (
+                <Card movie={movie} genres={genres} key={movie.title}/>
+            )
+            
+            
+})
+          
+          }
+        </div>
+        <h1 className={styles.title}>Proximamente</h1>
+        <div className={styles.movies}>
+          {
+         moviesuc.map((movie)=>{
         
             return (
                 <Card movie={movie} genres={genres} key={movie.title}/>
