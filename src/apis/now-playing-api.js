@@ -14,12 +14,17 @@ export async function FetchMovies() {
     return axios.get(URL,options);
 }
 
+
 export async function Getgenres() {
-    return axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=7a141f44ef6e233e1e58ec7408d4c6b2&language=en`,options)
+    return axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=7a141f44ef6e233e1e58ec7408d4c6b2&language=es`,options)
 }
 
 
-//ignorar por ahora
 export async function FetchMovie(MovieId) {
-    return axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=b204908dc0ac030a23502ced45df53d1/${MovieId}`)
+    return axios.get(`https://api.themoviedb.org/3/movie/${MovieId}?api_key=7a141f44ef6e233e1e58ec7408d4c6b2&language=es-ES`)
+}
+
+export async function getCredits(MovieId) {
+    return axios.get(`
+    https://api.themoviedb.org/3/movie/${MovieId}/credits?api_key=7a141f44ef6e233e1e58ec7408d4c6b2&language=es-ES`)
 }

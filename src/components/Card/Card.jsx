@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
 export function Card({movie,genres}) {
@@ -15,11 +16,13 @@ export function Card({movie,genres}) {
    return ( 
    <div className={styles.container}>
      <div className={styles.movies}> 
+     <Link to={`/movies/${movie.id}`} className={styles.link}>
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           alt={movie.title}
           className={styles.image}
         />
+        </Link>
         <div className={styles.info}>
         <div className={styles.movietitle}>
             <h2>{movie.title}</h2>

@@ -2,9 +2,17 @@
     display: grid;
     grid-template-columns: repeat(3,auto);
     column-gap: 24px;
+
 }
 
-.title {
+.hero {
+    display: flex;
+    justify-content: space-between;
+    height: 80vh;
+    width: 100%;
+  }
+
+  .title {
     color: #777de4;
     height: 15vh;
     display: flex;
@@ -16,4 +24,9 @@
 .container {
     background-color: white;
     
+}
+
+.space{
+    height: 20px;
+    background-color: #FF8C42;
 }

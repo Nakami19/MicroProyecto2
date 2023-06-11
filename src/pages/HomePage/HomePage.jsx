@@ -2,6 +2,9 @@ import { useEffect } from "react";
 import { useMovies } from "../../hooks/useMovies";
 import styles from "./HomePage.module.css"
 import { Card } from "../../components/Card/Card";
+import { Carousel } from "../../components/Carrousel/Carousel";
+import { slides } from "../../components/Carrousel/SliderData.json";
+
 import { useGenres } from "../../hooks/useGenres";
 
 export function HomePage() {
@@ -23,23 +26,12 @@ export function HomePage() {
         getGenres()
     },[])
 
-    // genres.map((genero)=>{
-    //     console.log(genero)
-    // })
-
-    genres.map((genr)=>{
-        console.log(genr)
-        movies.map((movie)=>{
-            movie.genre_ids.map((num)=>{
-                if (num==genr.id) {
-                    console.log(movie.title+" wiii "+genr.name)
-                }
-            })
-        })
-    })
-
     return (
         <div className={styles.container}>
+            <div className={styles.hero}>
+            <Carousel data={slides} />
+            </div>
+        <div className={styles.space}></div>
         <h1 className={styles.title}>Cartelera</h1>
         <div className={styles.movies}>
           {

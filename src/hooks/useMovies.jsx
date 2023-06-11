@@ -1,10 +1,11 @@
 
 import { useState } from "react";
-import { FetchMovies } from "../apis/now-playing-api";
+import { FetchMovie, FetchMovies, getCredits } from "../apis/now-playing-api";
 
 export function useMovies() {
     const [movies, setMovies]=useState([]);
-    const [movie, setMovie]=useState([])
+    const [movie, setMovie]=useState([null])
+    const [idiomas, setIdiomas]=useState([])
 
     const getMovies=async () => {
         const {data}=await FetchMovies()
@@ -12,36 +13,19 @@ export function useMovies() {
 
     }
 
-    return {
-        movies, getMovies
+    const getOneMovie=async (MovieId) => {
+        const {data}=await FetchMovie(MovieId)
+        setMovie(data)
+        setIdiomas(data.spoken_languages)
+
     }
 
-    
+    const getIdiomas= (data) => {
+        setIdiomas(data)
+    }
 
-//     const [characters, setCharacters]=useState ([]) ;
-//   const [character, setCharacter]=useState ([null]) ;
-//   const [isLoading, setLoading]=useState(false); 
+    return {
+        movies, getMovies, movie, getOneMovie, idiomas, getIdiomas
+    }
 
-//   const getCharacters= async ()=>{
-//     setLoading(true);
-//     const {data}=await FetchCharacters();
-//     setCharacters(data.results);
-//     setLoading(false);
-//   };
-
-//   const getSingleCharacter=async (characterId) => {
-//     setLoading(true);
-//     const {data}=await FetchSingleCharacter(characterId);
-//     setCharacter(data);
-//     setLoading(false);
-
-//   }
-
-//   return {
-//     characters,
-//     character,
-//     isLoading,
-//     getCharacters,
-//     getSingleCharacter
-//   };
 }

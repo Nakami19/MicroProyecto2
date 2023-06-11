@@ -1,0 +1,46 @@
+.container {
+    width: 100%;
+    height: 89vh;
+    background: #272b33;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+    
+  .imageContainer {
+    width: 100%;
+    margin-left: 100px;
+    margin-top: 30px;
+  }
+  
+  .imageContainer {
+    display: flex;
+    align-items: center;
+    width: 300px;
+
+  }
+  .image {
+    width:60vh;
+    height: 70vh;
+  }
+  .details {
+    grid-column-start: 2;
+    grid-column-end: 4;
+  }
+  
+  .details .title {
+    display: block;
+    font-size: 3em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin-left: 100px;
+    margin-top: 40px;
+  }
+  
+  .details .info {
+    margin-left: 100px;
+    margin-top: 40px;
+      font-size: 20px;
+      color: #fff;
+  }
