@@ -10,6 +10,7 @@ import { useMoviesUC } from "../../hooks/useMoviesUC";
 //import { useSearch } from "../../hooks/useSearch";
 
 export function HomePage() {
+
     const {
         movies,
         getMovies, getSearchMovies
