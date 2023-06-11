@@ -44,10 +44,13 @@ export function MovieInfoPage() {
     }
 
     actors.map((act)=>{
+        if(act.known_for_department=="Acting") {
         actor.push(act.name)
+    }
     })
 
     actor.map((actorss)=>{
+        
         acting+=`${actorss}, `
     })
     

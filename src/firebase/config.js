@@ -3,14 +3,16 @@ import {GoogleAuthProvider, getAuth} from "firebase/auth"
 import {getFirestore} from "firebase/firestore"
 import {getStorage} from "firebase/storage"
 
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDQwCBgFV92n2I5zQn_XqEgodihmPjCpQo",
-  authDomain: "microproyecto2-63461.firebaseapp.com",
-  projectId: "microproyecto2-63461",
-  storageBucket: "microproyecto2-63461.appspot.com",
-  messagingSenderId: "437505444884",
-  appId: "1:437505444884:web:ecfc75da69a77d05156b01",
-  measurementId: "G-WJZDG5D6SF"
+  apiKey: import.meta.env.VITE_BACKEND_URLCONFIG1,
+  authDomain: import.meta.env.VITE_BACKEND_URLCONFIG2,
+  projectId: import.meta.env.VITE_BACKEND_URLCONFIG3,
+  storageBucket: import.meta.env.VITE_BACKEND_URLCONFIG4,
+  messagingSenderId: import.meta.env.VITE_BACKEND_URLCONFIG5,
+  appId: import.meta.env.VITE_BACKEND_URLCONFIG6,
+  measurementId: import.meta.env.VITE_BACKEND_URLCONFIG7
 };
 
 const app = initializeApp(firebaseConfig);

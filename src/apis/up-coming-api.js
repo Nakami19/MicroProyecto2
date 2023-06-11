@@ -1,7 +1,7 @@
-//en este archivo se haran las peticiones de las api
-import axios from "axios"; 
 
-const url = 'https://api.themoviedb.org/3/movie/upcoming?api_key=b204908dc0ac030a23502ced45df53d1';
+import axios from "axios"; 
+const key=import.meta.env.VITE_BACKEND_URLAPI;
+const url = `https://api.themoviedb.org/3/movie/upcoming?${key}&language=es-ES`;
 const options = {
   method: 'GET',
   headers: {
@@ -15,14 +15,5 @@ export async function FetchMoviesUC() {
 }
 
 export async function FetchMovieUC(MovieId) {
-    return axios.get(`https://api.themoviedb.org/3/movie/${MovieId}?api_key=7a141f44ef6e233e1e58ec7408d4c6b2&language=es-ES`)
+    return axios.get(`https://api.themoviedb.org/3/movie/${MovieId}?${key}&language=es-ES`)
 }
-
-//para las api siempre poner el async
-// export async function FetchMoviesUC() {
-//     return axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=b204908dc0ac030a23502ced45df53d1");
-// }
-
-// export async function FetchMovieUC(MovieId) {
-//     return axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=b204908dc0ac030a23502ced45df53d1/${MovieId}`)
-// }
