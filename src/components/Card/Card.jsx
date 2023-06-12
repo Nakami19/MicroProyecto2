@@ -26,7 +26,6 @@ export function Card({movie,genres}) {
         <div className={styles.movietitle}>
             <h2>{movie.title}</h2>
         </div>
-        <br></br>
         <div className={styles.movieinfo}>
             <p>Idioma original: {movie.original_language}</p>
             <p>Generos:</p>

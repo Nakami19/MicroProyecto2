@@ -1,20 +1,94 @@
-*{
-    margin: 0;
+*{margin: 0;}
+@media screen and (max-width: 767px) { 
+  .navbar {
+    background: #4E598C; 
+    font-size: 6px;
+    display: flex;
+    height: 5vh;
+  }
+
+  .menuoption{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+  }
+
+
+.navbar .menuoption .options .link{
+  font-size: 6px;
+  float: right;
+  margin-left: 0;
 }
 
-.navbar {
+.link {
+  text-decoration: none;
+  color: white;
+  
+}
+
+.navbar .menuoption .options .link {
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+.navbar .menuoption .options .link{
+  float: right;
+  margin-left: 0.8vw;
+}
+
+.navbar .menuoption .options .link.logoutBtn {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: orange;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+
+.navbar .menuoption .options .link .userAvatar {
+  display: flex;
+  flex-direction: row;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #3c3e44;
+  float: left;
+}
+
+.navbar .menuoption .options .link .userAvatar {
+  float: left;
+}
+
+.link{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+    
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar {
     display: flex;
     justify-content: space-between;
     background: #4E598C;
     padding: 24px 120px;
     font-size: 12px;
-  }
+  } 
   
-.menuoption{
+ .menuoption{
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} 
 
 .link {
     text-decoration: none;
@@ -70,3 +144,79 @@
     float: left;
   }
   
+}
+
+@media screen and (min-width:767px) and (max-width:1023px) {
+  .navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #4E598C;
+  padding: 24px 120px;
+  font-size: 12px;
+} 
+
+.menuoption{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+.link {
+  text-decoration: none;
+  color: white;
+  
+}
+
+.navbar .menuoption .options .link {
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+.navbar .menuoption .options .link:hover {
+  color: black;
+}
+
+
+.navbar .menuoption .options .link.logoutBtn {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: orange;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+.navbar .menuoption .options .link.logoutBtn:hover {
+  color: white;
+}
+
+.navbar .menuoption .options .link h2{
+  font-size: 25px;
+  float: right;
+  margin-left: 0.8vw;
+}
+
+
+.navbar .menuoption .options .link .userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 20px;
+  background: #3c3e44;
+  float: left;
+}
+
+.navbar .menuoption .options .link .img {
+  float: left;
+}
+
+}
+
+
+
+
