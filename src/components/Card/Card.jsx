@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
 export function Card({movie,genres}) {
+
     let generos=[];
     let gen="";
-    genres.map((genr)=>{
+
+    try {
+      genres.map((genr)=>{
             movie.genre_ids.map((num)=>{
                 if (num==genr.id) {
                     generos.push(genr.name)
@@ -12,6 +15,14 @@ export function Card({movie,genres}) {
             })
 })
     generos.map((gene)=>{gen+=`${gene} `})
+    } catch (error) {
+      movie.genres.map((gen)=>{
+        generos.push(gen.name)
+      })
+      generos.map((gene)=>{gen+=`${gene} `})
+    }
+    
+
    return ( 
    <div className={styles.container}>
      <div className={styles.movies}> 

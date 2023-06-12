@@ -8,6 +8,7 @@ import {
   getDocs,
   query,
   where,
+  arrayUnion,
 } from "firebase/firestore";
 import { db } from "./config";
 
@@ -51,4 +52,13 @@ export async function getUserProfile(email) {
   } else{
 
   return null;}
+}
+
+export async function UpdateFavorites(Id, movie) {
+  const update= doc(db,'users', Id)
+
+  return await updateDoc(update, {
+    favorites: arrayUnion(movie)
+  })
+
 }

@@ -20,11 +20,6 @@ export function NavBar() {
                         <h1>Inicio</h1>
                     </Link>
                 </ol>
-                <ol className={styles.options}>
-                    <Link to={Reservar_URL} className={styles.link}>
-                    <h1>Reservar</h1>
-                    </Link>
-                </ol>             
             </ul>
      
 
