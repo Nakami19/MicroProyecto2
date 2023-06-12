@@ -1,87 +1,266 @@
-
-.screen{
-    border-color: black;
-    width: 50%;
-    overflow: hidden;
-    margin: 40px auto;
-    padding: 40px;
-    border: 10%;
-    border-style: solid;
-}
-
- .screen h1{
-    text-align: center;
-    font-size: 200%;
+@media screen and (max-width: 767px) { 
+    .screen{
+        border-color: black;
+        width: 50%;
+        overflow: hidden;
+        margin: 40px auto;
+        padding: 40px;
+        border: 10%;
+        border-style: solid;
+    }
     
-}
-
-.box{
-    width: 37%;
-    margin: 3% auto;
-    padding: 3%;
-    background-color: #2d3f62 ;
-    border-radius: 10px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.seatbox{
-    width: 80px;
-    height: 80px;
-    margin:10px;
-    border:4px solid rgb(0, 0, 0);
-    background-color: rgb(36, 195, 36);
-    text-align: center;
-    line-height: 80px;
-    display: inline-flex;
-    place-content: center;
-    font-weight:bolder;
-    border-radius: 15%;
-}
-
-.seatbox:hover{
-    background-color: orange;
-    cursor: pointer;
-}
-
-.leyenda{
-    margin: 3%;
-    padding: 3%;
-    background-color: #ff9d0088 ;
-    border-radius: 10px;
-}
-
-.leyenda p{
-    font-size: 20px;
-    font-weight: bolder;
-    line-height: 50px;
-    margin-left: 30px;
-}
-
-.confirmar{
-    font-weight: 400;
-    font-size: 23px;
-    text-decoration: none;
-    height: 30vh;
-    width: 50vh;
-    color: white;
-    background-color: rgb(224, 67, 67);
-    border: 1px solid;
-    border-radius: 7px;
-    margin-bottom: 30px;
-    transition: background-color .3s;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    line-height: 50px;
-  }
-
-
-.confirmar:hover{
-    color: rgb(224, 67, 67) ;
-    background-color: white;
+     .screen h1{
+        text-align: center;
+        font-size: 200%;
+        
+    }
+    
+    .box{
+        width: 37%;
+        margin: 3% auto;
+        padding: 3%;
+        background-color: #2d3f62 ;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .seatbox{
+        width: 80px;
+        height: 80px;
+        margin:10px;
+        border:4px solid rgb(0, 0, 0);
+        background-color: rgb(36, 195, 36);
+        text-align: center;
+        line-height: 80px;
+        display: inline-flex;
+        place-content: center;
+        font-weight:bolder;
+        border-radius: 15%;
+    }
+    
+    .seatbox:hover{
+        background-color: orange;
+        cursor: pointer;
+    }
+    
+    .leyenda{
+        margin: 3%;
+        padding: 3%;
+        background-color: #ff9d0088 ;
+        border-radius: 10px;
+    }
+    
+    .leyenda p{
+        font-size: 20px;
+        font-weight: bolder;
+        line-height: 50px;
+        margin-left: 30px;
+    }
+    
+    .confirmar{
+        font-weight: 400;
+        text-decoration: none;
+        height: 20vh;
+        width: 30vh;
+        font-size: 13px;
+        color: white;
+        background-color: rgb(224, 67, 67);
+        border: 1px solid;
+        border-radius: 7px;
+        margin-bottom: 30px;
+        transition: background-color .3s;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        line-height: 50px;
+      }
+    
+    
+    .confirmar:hover{
+        color: rgb(224, 67, 67) ;
+        background-color: white;
+        }
+    
+    .link{
+        text-decoration: none;
     }
 
-.link{
-    text-decoration: none;
 }
+@media screen and (min-width: 1024px) {
+    .screen{
+        border-color: black;
+        width: 50%;
+        overflow: hidden;
+        margin: 40px auto;
+        padding: 40px;
+        border: 10%;
+        border-style: solid;
+    }
+    
+     .screen h1{
+        text-align: center;
+        font-size: 200%;
+        
+    }
+    
+    .box{
+        width: 37%;
+        margin: 3% auto;
+        padding: 3%;
+        background-color: #2d3f62 ;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .seatbox{
+        width: 80px;
+        height: 80px;
+        margin:10px;
+        border:4px solid rgb(0, 0, 0);
+        background-color: rgb(36, 195, 36);
+        text-align: center;
+        line-height: 80px;
+        display: inline-flex;
+        place-content: center;
+        font-weight:bolder;
+        border-radius: 15%;
+    }
+    
+    .seatbox:hover{
+        background-color: orange;
+        cursor: pointer;
+    }
+    
+    .leyenda{
+        margin: 3%;
+        padding: 3%;
+        background-color: #ff9d0088 ;
+        border-radius: 10px;
+    }
+    
+    .leyenda p{
+        font-size: 20px;
+        font-weight: bolder;
+        line-height: 50px;
+        margin-left: 30px;
+    }
+    
+    .confirmar{
+        font-weight: 400;
+        font-size: 23px;
+        text-decoration: none;
+        height: 30vh;
+        width: 50vh;
+        color: white;
+        background-color: rgb(224, 67, 67);
+        border: 1px solid;
+        border-radius: 7px;
+        margin-bottom: 30px;
+        transition: background-color .3s;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        line-height: 50px;
+      }
+    
+    
+    .confirmar:hover{
+        color: rgb(224, 67, 67) ;
+        background-color: white;
+        }
+    
+    .link{
+        text-decoration: none;
+    }
+}
+@media screen and (min-width:767px) and (max-width:1023px) {
+    .screen{
+        border-color: black;
+        width: 50%;
+        overflow: hidden;
+        margin: 40px auto;
+        padding: 40px;
+        border: 10%;
+        border-style: solid;
+    }
+    
+     .screen h1{
+        text-align: center;
+        font-size: 200%;
+        
+    }
+    
+    .box{
+        width: 37%;
+        margin: 3% auto;
+        padding: 3%;
+        background-color: #2d3f62 ;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .seatbox{
+        width: 80px;
+        height: 80px;
+        margin:10px;
+        border:4px solid rgb(0, 0, 0);
+        background-color: rgb(36, 195, 36);
+        text-align: center;
+        line-height: 80px;
+        display: inline-flex;
+        place-content: center;
+        font-weight:bolder;
+        border-radius: 15%;
+    }
+    
+    .seatbox:hover{
+        background-color: orange;
+        cursor: pointer;
+    }
+    
+    .leyenda{
+        margin: 3%;
+        padding: 3%;
+        background-color: #ff9d0088 ;
+        border-radius: 10px;
+    }
+    
+    .leyenda p{
+        font-size: 20px;
+        font-weight: bolder;
+        line-height: 50px;
+        margin-left: 30px;
+    }
+    
+    .confirmar{
+        font-weight: 400;
+        font-size: 23px;
+        text-decoration: none;
+        height: 30vh;
+        width: 50vh;
+        color: white;
+        background-color: rgb(224, 67, 67);
+        border: 1px solid;
+        border-radius: 7px;
+        margin-bottom: 30px;
+        transition: background-color .3s;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        line-height: 50px;
+      }
+    
+    
+    .confirmar:hover{
+        color: rgb(224, 67, 67) ;
+        background-color: white;
+        }
+    
+    .link{
+        text-decoration: none;
+    }
+}
+

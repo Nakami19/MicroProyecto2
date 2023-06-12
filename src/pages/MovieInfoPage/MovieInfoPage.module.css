@@ -1,50 +1,3 @@
-/* .container {
-    width: 100%;
-    height: 95vh;
-    background: #5989e9;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-    
-  .imageContainer {
-    width: 100%;
-    margin-left: 100px;
-    margin-top: 30px;
-  }
-  
-  .imageContainer {
-    display: flex;
-    align-items: center;
-    width: 300px;
-
-  }
-  .image {
-    width:60vh;
-    height: 70vh;
-  }
-  .details {
-    grid-column-start: 2;
-    grid-column-end: 4;
-
-  }
-  
-  .details .title {
-    display: block;
-    font-size: 3em;
-    font-weight: 900;
-    text-transform: uppercase;
-    color: #fff;
-    margin-left: 100px;
-    margin-top: 40px;
-  }
-  
-  .details .info {
-    margin-left: 100px;
-    margin-top: 40px;
-      font-size: 20px;
-      color: #fff;
-  } */
 
   @media screen and (min-width:767px) and (max-width:1023px) {
     .container{
@@ -287,10 +240,11 @@
       width: 50vh;
     }
     .reserva{
+      margin-top: 1rem;
       font-weight: 400;
-      font-size: 10px;
+      font-size: 13px;
       text-decoration: none;
-      height: 7vh;
+      height: 6vh;
       width: 18vh;
       color: white;
       background-color: rgb(224, 67, 67);
