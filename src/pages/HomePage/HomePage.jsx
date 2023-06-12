@@ -7,10 +7,8 @@ import { slides } from "../../components/Carrousel/SliderData.json";
 
 import { useGenres } from "../../hooks/useGenres";
 import { useMoviesUC } from "../../hooks/useMoviesUC";
-//import { useSearch } from "../../hooks/useSearch";
 
 export function HomePage() {
-
     const {
         movies,
         getMovies, getSearchMovies
@@ -38,14 +36,6 @@ export function HomePage() {
     },[])
 
     const [busqueda, setBusqueda]=useState("");
-    
-    // const handleOnsubmit= (a) => {
-    //     a.preventDefault();
-    //     // if(busqueda) {
-    //     //     getSearchMovies(busqueda)
-    //     // }
-    //     // setBusqueda("")
-    // }
     useEffect(()=> {
     },[busqueda])
 
