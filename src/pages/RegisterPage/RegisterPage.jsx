@@ -17,7 +17,7 @@ export function RegisterPage() {
   };
 
   const onFail = (_error) => {
-    console.log("REGISTER FAILED, Try Again");
+    alert("REGISTER FAILED, Try Again");
   };
 
   const handleSubmit = async (event) => {
@@ -43,6 +43,8 @@ export function RegisterPage() {
     }));
   };
 
+  
+
   return (
     <div className={styles.container}>
       <form className={styles.form}>
@@ -60,8 +62,11 @@ export function RegisterPage() {
             type="text"
             name="name"
             id="name"
+            pattern="[A-Za-z]+"
+            required
             placeholder="Ej. Ayuda Porfavor"
             onChange={onChange}
+
           />
         </div>
 

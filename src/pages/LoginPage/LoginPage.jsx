@@ -19,7 +19,7 @@ export function LoginPage() {
   };
 
   const onFail = (_error) => {
-    console.log("LOGIN FAILED, Try Again");
+    alert("LOGIN FAILED, Try Again");
   };
 
   const onSubmit = async (event) => {

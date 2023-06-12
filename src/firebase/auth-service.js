@@ -21,7 +21,9 @@ export const signInWithGoogle = async () => {
         uid,
         email,
         name: displayName,
-      });
+        "favorites":[],
+        "reservas":[],
+    });
     }
 
     if (onSuccess) {
@@ -48,6 +50,8 @@ export const signInWithGoogle = async () => {
   }
 };
 
+
+
 // HANDLE REGISTER WITH EMAIL AND PASSWORD
 export const registerWithEmailAndPassword = async ({
   userData,
@@ -59,13 +63,15 @@ export const registerWithEmailAndPassword = async ({
     const firebaseResult = await createUserWithEmailAndPassword(
       auth,
       email,
-      password
+      password,
     );
 
     await createUser({
       ...restData,
       email,
       uid: firebaseResult.user.uid,
+      "favorites":[],
+      "reservas":[],
     });
 
     // SUCCESS CALLBACK
