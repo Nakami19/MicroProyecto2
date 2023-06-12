@@ -10,7 +10,7 @@ import { useState } from "react";
 export function RegisterPage() {
   const navigate = useNavigate();
   const [formData, setData] = useState({});
-
+  
 
   const onSuccess = () => {
     navigate(HOME_URL);

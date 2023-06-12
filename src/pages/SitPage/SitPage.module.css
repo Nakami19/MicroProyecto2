@@ -62,8 +62,8 @@
     font-weight: 400;
     font-size: 23px;
     text-decoration: none;
-    height: 14vh;
-    width: 40vh;
+    height: 30vh;
+    width: 50vh;
     color: white;
     background-color: rgb(224, 67, 67);
     border: 1px solid;
@@ -73,6 +73,7 @@
     display: block;
     margin-right: auto;
     margin-left: auto;
+    line-height: 50px;
   }
 
 
