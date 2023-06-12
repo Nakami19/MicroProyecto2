@@ -7,7 +7,7 @@ export function Footer() {
     
     return (
         <footer className={styles.footer}> 
-            <ul>
+            <ul className={styles.menuinfo}>
                 <ol className={styles.info}>
                     <h2>Contáctanos</h2>
                 </ol>
@@ -16,7 +16,7 @@ export function Footer() {
                 </ol>
             </ul>
 
-            <ul>
+            <ul className={styles.menuinfo}>
                 <ol className={styles.info}>
                     <h2>Dirección</h2>
                 </ol>
