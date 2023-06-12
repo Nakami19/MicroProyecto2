@@ -1,11 +1,5 @@
 @media screen and (max-width: 767px) { 
 
-    /* .container {
-        background-color: white;
-        width: 30vh;
-        
-    } */
-
     .movies {
         display: flex;
         flex-wrap: wrap;
@@ -143,54 +137,3 @@
         border-radius: 5px;
     }
 }
-
- /* display: grid;
-    grid-template-columns: repeat(3,auto);
-    column-gap: 24px; */
-
-/* .movies {
-   
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.hero {
-    display: flex;
-    justify-content: space-between;
-    height: 80vh;
-    width: 100%;
-  }
-
-  .title {
-    color: #777de4;
-    height: 15vh;
-    display: flex;
-    align-items: center;
-    font-size: 40px;
-    margin-left: 50px;
-}
-
-.container {
-    background-color: white;
-    
-}
-
-.space{
-    height: 20px;
-    background-color: #FF8C42;
-}
-
-.inputContainer{
-    padding: 25px;
-    display: flex;
-    justify-content: end;
-    height: 5vh;
-  }
-
-  .busqueda{ 
-    width: 50%;
-    border: 2px solid #22254b;
-    border-radius: 5px;
-} */

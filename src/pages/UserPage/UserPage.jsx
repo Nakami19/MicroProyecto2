@@ -56,6 +56,7 @@ return(
         </section>
 
         <section className={styles.info}>
+        <h1 className={styles.title}>Favoritos</h1>
         <div className={styles.movies}>
             {
             favorito.map((movie)=>{
