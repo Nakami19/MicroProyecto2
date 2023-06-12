@@ -11,6 +11,7 @@ const options = {
     }
   };
 
+
 export async function FetchMovies() {
 
     return axios.get(URL,options);

@@ -1,12 +1,27 @@
 import { Link } from "react-router-dom";
 import styles from "./SitPage.module.css";
 import { HOME_URL } from "../../constants/url";
-
+import { TicketContext } from "../ReservePage/ReservePage";
+import React, { useContext } from 'react';
 
 
 export function SitPage() { 
-    let contador = 4;
-    let dbseats=[1,2,3]
+
+
+    const minPrice = 1000;
+    const maxPrice = 5000;
+  
+    const getRandomPrice = () => {
+      const randomNumber = Math.floor(Math.random() * (maxPrice - minPrice + 1)) + minPrice;
+      return randomNumber;
+    };
+  
+    const preciounitario = getRandomPrice();
+    
+   let preciototal = preciounitario*5;
+   const ticket = useContext(TicketContext);
+    let contador = ticket;
+    let dbseats=[]
     let selectedseats=dbseats;
     function cancel(seatId){
         let a = selectedseats.indexOf(seatId);
@@ -23,13 +38,13 @@ export function SitPage() {
     }
 
     function updateSelectedSeats(){
+
         let s="";
         selectedseats.sort();
         if (selectedseats!=null){
         for (let x of selectedseats){
-            if (!dbseats.includes(x)) {
                 s += x + ',' + ' ';
-              }
+              
         }
         document.getElementById('SelectedSeatID').innerHTML=s;
         document.getElementById('seatsInForm').value=s;}
@@ -124,14 +139,17 @@ export function SitPage() {
 
             <div className={styles.leyenda}>
             <p>Verde: Disponible || Rojo: Reservado</p>
-            <p>Asientos seleccionados: <span id="SelectedSeatID"></span></p>
+            <p>Asientos reservados: <span id="SelectedSeatID"></span></p>
+            <p>Tickets disponibles: {ticket}</p>
             <input type="hidden" name="seatsInForm" id="seatsInForm" value=""/>
             <Link to={HOME_URL} className={styles.link}>
-            <button className={styles.confirmar}>Confirmar Selección</button>
+            <button className={styles.confirmar}>Confirmar Selección <br /> Precio unitario ${preciounitario} <br /> Precio total ${preciototal}</button>
             </Link>
             </div>
 
         </div>
     );
+
+    
   }
   

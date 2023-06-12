@@ -20,6 +20,7 @@ import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { MovieInfoPage } from './pages/MovieInfoPage/MovieInfoPage';
 import { SitPage } from './pages/SitPage/SitPage';
 import { UserPage } from './pages/UserPage/UserPage';
+import { TicketProvider } from './pages/ReservePage/ReservePage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path={HOME_URL} element={<HomePage/>}/>
         <Route path="*" element={<NotFoundPage />} />
         <Route path='/movies/:movieId' element={<MovieInfoPage/>}/>
+  
         <Route
             path={LOGIN_URL}
             element={
@@ -54,22 +56,30 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             }
           />
 
+      
         <Route
         
             path={Reservar_URL}
             element={
+              <TicketProvider>
               <PrivateRoute>
                 <ReservePage />
               </PrivateRoute>
+              </TicketProvider>
+
             }
           />
 
         <Route
             path={SEATS_URL}
             element={
+              <TicketProvider>
+
               <PrivateRoute>
                 <SitPage />
               </PrivateRoute>
+              </TicketProvider>
+
             }
           />
 
