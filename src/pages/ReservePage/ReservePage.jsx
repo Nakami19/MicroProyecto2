@@ -1,5 +1,5 @@
   import styles from "./ReservePage.module.css";
-  import { useNavigate } from "react-router-dom";
+  import { useNavigate, useParams } from "react-router-dom";
   import React, { createContext, useState, useContext } from 'react';
   import { SEATS_URL } from "../../constants/url";
 
@@ -9,13 +9,14 @@
   export function ReservePage() {
     const [ticket, setTicket] = useState(1);
     const navigate = useNavigate();
+    const {movieId}=useParams();
     
 
 
             const handleSubmit = async (event) => {
               event.preventDefault();
               if (formData.nombre != '' && formData.cedula !='' && formData.email!=''&& !isNaN(formData.cedula) ){
-              navigate(SEATS_URL);
+              navigate(`/seat/${movieId}`);
               cantidad = ticket;
             }
               else{

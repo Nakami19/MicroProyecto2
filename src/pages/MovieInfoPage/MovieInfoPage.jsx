@@ -17,7 +17,7 @@ export function MovieInfoPage() {
     
     const { movie, getOneMovie, idiomas, getIdiomas}=useMovies();
     
-    const {title, overview, runtime, vote_average,poster_path,status,release_date}=movie || {}
+    const {title, overview, runtime, vote_average,poster_path,status,release_date, id}=movie || {}
     const { user } = useUserContext();
 
 
@@ -86,7 +86,7 @@ export function MovieInfoPage() {
                 <p className={styles.info}>Idiomas: {idiomass} </p>
               </div>
               </div>
-              <Link to={Reservar_URL} className={styles.link}>
+              <Link to={`/seats/${id}`} className={styles.link}>
               <button className={styles.reserva}>Reservar</button>
               </Link>
             </div>

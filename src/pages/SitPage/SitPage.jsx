@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./SitPage.module.css";
 import { HOME_URL } from "../../constants/url";
 import { TicketContext } from "../ReservePage/ReservePage";
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useUserContext } from "../../contexts/UserContext";
+import { useMovies } from "../../hooks/useMovies";
+import { UpdateReserva } from "../../firebase/users-service";
 
 
 export function SitPage() { 
-
 
     const minPrice = 1000;
     const maxPrice = 5000;
@@ -113,7 +115,18 @@ export function SitPage() {
           );
         }
       });
+    
+    const handleAñadir= async ()=>{
+      console.log(movie)
+      await UpdateReserva(user.id, movie)
+    }
+    const { user } = useUserContext();
+    const {movieId}=useParams();
+    const { movie, getOneMovie}=useMovies();
 
+    useEffect(()=>{
+      getOneMovie(movieId)
+  },[])
 
     return (
 
@@ -143,7 +156,7 @@ export function SitPage() {
             <p>Tickets disponibles: {ticket}</p>
             <input type="hidden" name="seatsInForm" id="seatsInForm" value=""/>
             <Link to={HOME_URL} className={styles.link}>
-            <button className={styles.confirmar}>Confirmar Selección <br /> Precio unitario ${preciounitario} <br /> Precio total ${preciototal}</button>
+            <button className={styles.confirmar} onClick={handleAñadir}>Confirmar Selección <br /> Precio unitario ${preciounitario} <br /> Precio total ${preciototal}</button>
             </Link>
             </div>
 

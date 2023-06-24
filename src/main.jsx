@@ -59,7 +59,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       
         <Route
         
-            path={Reservar_URL}
+            path='/seats/:movieId'
             element={
               <TicketProvider>
               <PrivateRoute>
@@ -71,7 +71,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           />
 
         <Route
-            path={SEATS_URL}
+            path={'/seat/:movieId'}
             element={
               <TicketProvider>
 

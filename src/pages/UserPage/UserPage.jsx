@@ -10,6 +10,7 @@ export function UserPage() {
     const { user} = useUserContext();
     const [refrescar, setRefrescar]=useState(0);
     const [favorito, setFavorito]=useState([]);
+    const [reservas, setReservas]=useState([]);
 
     const Favorites= async ()=> {
         if (user) {
@@ -22,8 +23,24 @@ export function UserPage() {
         }
     }
 
+    const Reservas=async () => {
+        if (user) {
+            const docRef=doc(db,"users",user.id)
+            
+            const docSnap= await getDoc(docRef)
+            const datos=docSnap.data()
+            const reservas=datos.reservas;
+            setReservas(reservas)
+    }
+
+    }
+
     useEffect(()=>{
         Favorites()
+    },[refrescar])
+
+    useEffect(()=>{
+        Reservas()
     },[refrescar])
 
     const {
@@ -60,6 +77,18 @@ return(
         <div className={styles.movies}>
             {
             favorito.map((movie)=>{
+            return (
+                <Card movie={movie} genre={genres} key={movie.id}/>
+            )            
+            })
+            }
+        </div>
+        </section>
+        <section className={styles.info}>
+        <h1 className={styles.title}>Reservados</h1>
+        <div className={styles.movies}>
+            {
+            reservas.map((movie)=>{
             return (
                 <Card movie={movie} genre={genres} key={movie.id}/>
             )            

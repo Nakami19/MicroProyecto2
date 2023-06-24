@@ -62,3 +62,13 @@ export async function UpdateFavorites(Id, movie) {
   })
 
 }
+
+
+export async function UpdateReserva(Id, movie) {
+  const update= doc(db,'users', Id)
+
+  return await updateDoc(update, {
+    reservas: arrayUnion(movie)
+  })
+
+}
