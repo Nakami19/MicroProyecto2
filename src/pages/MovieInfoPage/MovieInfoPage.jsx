@@ -60,7 +60,16 @@ export function MovieInfoPage() {
     })
 
     const handleAñadir= async ()=>{
-      await UpdateFavorites(user.id, movie)
+      let existe=false;
+      user.reservas.map((peli)=>{
+        if(peli.id==movie.id){
+          existe=true;
+        } 
+      })
+
+      if(existe==false) {
+        await UpdateFavorites(user.id, movie,user)
+      }  
     }
 
 

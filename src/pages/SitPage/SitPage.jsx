@@ -117,8 +117,16 @@ export function SitPage() {
       });
     
     const handleAñadir= async ()=>{
-      console.log(movie)
-      await UpdateReserva(user.id, movie)
+      let existe=false;
+      user.reservas.map((peli)=>{
+        if(peli.id==movie.id){
+          existe=true;
+        } 
+      })
+
+      if(existe==false) {
+        await UpdateReserva(user.id, movie) 
+      }
     }
     const { user } = useUserContext();
     const {movieId}=useParams();

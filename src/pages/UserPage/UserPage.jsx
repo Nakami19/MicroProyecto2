@@ -90,7 +90,7 @@ return(
             {
             reservas.map((movie)=>{
             return (
-                <Card movie={movie} genre={genres} key={movie.id}/>
+                <Card movie={movie} genre={genres} key={movie.original_title}/>
             )            
             })
             }

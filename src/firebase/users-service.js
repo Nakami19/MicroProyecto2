@@ -56,7 +56,6 @@ export async function getUserProfile(email) {
 
 export async function UpdateFavorites(Id, movie) {
   const update= doc(db,'users', Id)
-
   return await updateDoc(update, {
     favorites: arrayUnion(movie)
   })
