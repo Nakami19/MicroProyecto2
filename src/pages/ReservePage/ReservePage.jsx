@@ -1,28 +1,57 @@
   import styles from "./ReservePage.module.css";
   import { useNavigate, useParams } from "react-router-dom";
-  import React, { createContext, useState, useContext } from 'react';
-  import { SEATS_URL } from "../../constants/url";
+  import React, { createContext, useState, useContext,useEffect } from 'react';
+  import { usePeliculas } from "../../hooks/usePeliculas";
+  import { db } from "../../firebase/config";
+  import {
+    doc,
+    setDoc,
+    collection,
 
-  let cantidad =0
+  } from 'firebase/firestore';
+
+  let cantidad = 0
+  
   export const TicketContext = createContext();
 
   export function ReservePage() {
     const [ticket, setTicket] = useState(1);
     const navigate = useNavigate();
     const {movieId}=useParams();
+    const pelicollection = collection(db, 'peliculas');
+
+
+    const {peliculas, getPeliculas} = usePeliculas()
+
+    useEffect(()=>{
+      getPeliculas();
+    },[])
     
 
 
-            const handleSubmit = async (event) => {
-              event.preventDefault();
-              if (formData.nombre != '' && formData.cedula !='' && formData.email!=''&& !isNaN(formData.cedula) ){
-              navigate(`/seat/${movieId}`);
-              cantidad = ticket;
-            }
-              else{
-                alert("REGISTER FAILED, Try Again");              }
-
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      if (formData.nombre !== '' && formData.cedula !== '' && formData.email !== '' && !isNaN(formData.cedula)){
+        navigate(`/seat/${movieId}`);
+        cantidad = ticket;
+        const newPeli = {
+          asientos:[],
+          id: movieId,
+        }
+        let existe = false;
+        peliculas.forEach((pelicula)=>{
+          if (pelicula.id === movieId){
+            existe = true;  
           }
+        });
+        if (existe == false){
+          const peliculaRef = doc(pelicollection, newPeli.id);
+          setDoc(peliculaRef, newPeli);
+        }
+      } else {
+        alert("REGISTER FAILED, Try Again");
+      }
+    }
 
           const handleTicketChange = (event) => {
               const value = parseInt(event.target.value);

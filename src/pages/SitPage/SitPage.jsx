@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import styles from "./SitPage.module.css";
 import { HOME_URL } from "../../constants/url";
 import { TicketContext } from "../ReservePage/ReservePage";
@@ -6,25 +6,58 @@ import React, { useContext, useEffect } from 'react';
 import { useUserContext } from "../../contexts/UserContext";
 import { useMovies } from "../../hooks/useMovies";
 import { UpdateReserva } from "../../firebase/users-service";
-
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { usePeliculas } from "../../hooks/usePeliculas";
+import {
+  doc,
+  updateDoc,
+  collection,
+  onSnapshot ,
+} from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 export function SitPage() { 
-
+    const navigate = useNavigate();
     const minPrice = 1000;
     const maxPrice = 5000;
-  
+    const {peliculas, getPeliculas} = usePeliculas()
+    const moviecollecition = collection(db, 'peliculas');
+
+    useEffect(()=>{
+      getPeliculas();
+    },[])
     const getRandomPrice = () => {
       const randomNumber = Math.floor(Math.random() * (maxPrice - minPrice + 1)) + minPrice;
       return randomNumber;
     };
   
     const preciounitario = getRandomPrice();
-    
+    const { user } = useUserContext();
+    const {movieId}=useParams();
+    const { movie, getOneMovie}=useMovies();
+
+    useEffect(()=>{
+      getOneMovie(movieId)
+  },[])
+
+    const [seleccionados, setSeleccionados]=useState([]);
+
+    useEffect(() => {
+      const peliculaSeleccionada = peliculas.find(pelicula => pelicula.id === movieId);
+      if (peliculaSeleccionada) {
+        setSeleccionados(peliculaSeleccionada.asientos);
+        console.log(seleccionados )
+      }
+    }, [movieId, peliculas]);
+
    let preciototal = preciounitario*5;
    const ticket = useContext(TicketContext);
     let contador = ticket;
-    let dbseats=[]
-    let selectedseats=dbseats;
+    let selectedseats=seleccionados;
+
+
+  
     function cancel(seatId){
         let a = selectedseats.indexOf(seatId);
         selectedseats.splice(a,1);
@@ -46,7 +79,6 @@ export function SitPage() {
         if (selectedseats!=null){
         for (let x of selectedseats){
                 s += x + ',' + ' ';
-              
         }
         document.getElementById('SelectedSeatID').innerHTML=s;
         document.getElementById('seatsInForm').value=s;}
@@ -116,7 +148,9 @@ export function SitPage() {
         }
       });
     
-    const handleAñadir= async ()=>{
+    const handleAgregar= async (event)=>{
+      event.preventDefault();
+      if (contador === 0) {
       let existe=false;
       user.reservas.map((peli)=>{
         if(peli.id==movie.id){
@@ -127,14 +161,20 @@ export function SitPage() {
       if(existe==false) {
         await UpdateReserva(user.id, movie) 
       }
-    }
-    const { user } = useUserContext();
-    const {movieId}=useParams();
-    const { movie, getOneMovie}=useMovies();
+      setSeleccionados(selectedseats)
 
-    useEffect(()=>{
-      getOneMovie(movieId)
-  },[])
+
+      peliculas.map(async (pelicula)=>{
+        if (pelicula.id == movieId){
+          const movieRef = doc(moviecollecition, movieId);
+          await updateDoc(movieRef, {"asientos": seleccionados});
+          navigate(HOME_URL);
+        }}) 
+
+      
+      };
+    }
+
 
     return (
 
@@ -163,9 +203,7 @@ export function SitPage() {
             <p>Asientos reservados: <span id="SelectedSeatID"></span></p>
             <p>Tickets disponibles: {ticket}</p>
             <input type="hidden" name="seatsInForm" id="seatsInForm" value=""/>
-            <Link to={HOME_URL} className={styles.link}>
-            <button className={styles.confirmar} onClick={handleAñadir}>Confirmar Selección <br /> Precio unitario ${preciounitario} <br /> Precio total ${preciototal}</button>
-            </Link>
+            <button className={styles.confirmar} onClick={handleAgregar}>Confirmar Selección <br /> Precio unitario ${preciounitario} <br /> Precio total ${preciototal}</button>
             </div>
 
         </div>
